@@ -1,0 +1,84 @@
+{
+  "name": "onecopy-electron",
+  "version": "1.0.1",
+  "description": "Save all information and paste them whenever you need them",
+  "main": "main.js",
+  "scripts": {
+    "dev": "concurrently \"npm run start-react\" \"wait-on http://localhost:3000 && electron .\"",
+    "start-react": "react-scripts start",
+    "build-react": "react-scripts build",
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "package": "electron-builder",
+    "package:win": "electron-builder -w",
+    "package:linux": "electron-builder -l",
+    "package:mac": "electron-builder -m",
+    "package:all": "electron-builder -lwm",
+    "deploy:win": "electron-builder -w --publish always",
+    "deploy:linux": "electron-builder -l --publish always",
+    "deploy:mac": "electron-builder -m --publish always"
+  },
+  "repository": "",
+  "keywords": [
+    "Electron",
+    "Copy to clipboard",
+    "Password manager",
+    "Clipboard manager"
+  ],
+  "author": "FENG Hao <hiroshifuu@outlook.com>",
+  "license": "MIT",
+  "build": {
+    "appId": "com.hiroshifuu.onecopy-electron",
+    "productName": "onecopy-electron",
+    "copyright": "Copyright © 2021 @ FENG Hao",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "assets/mac/icon.png.icns"
+    },
+    "win": {
+      "icon": "assets/win/icon.png.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "assets/png/256x256.png"
+    },
+    "files": [
+      "node_modules/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
+  },
+  "devDependencies": {
+    "electron": "^11.2.0",
+    "electron-builder": "^22.9.1",
+    "node-sass": "^4.13.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.4.0"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "concurrently": "^5.3.0",
+    "css-loader": "^5.0.1",
+    "electron-is-dev": "^1.2.0",
+    "style-loader": "^2.0.0",
+    "wait-on": "^5.2.1"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

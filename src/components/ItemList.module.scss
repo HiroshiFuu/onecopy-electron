@@ -1,0 +1,47 @@
+@import "../styles/variables";
+
+.item-list {
+  align-items: center;
+}
+
+.panel {
+  animation: slidedown 0.2s ease;
+}
+
+.button {
+  margin-top: 20px;
+  text-align: center;
+  Button {
+    font-size: $item-font-size;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
+
+@keyframes slidedown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+  0% {
+    text-shadow: 0 0 2px white;
+  }
+  50% {
+    text-shadow: 0 0 10px white;
+  }
+  100% {
+    text-shadow: 0 0 2px white;
+  }
+}
+
+input[type=text]:not(.browser-default) {
+  margin: 0 1%;
+}
