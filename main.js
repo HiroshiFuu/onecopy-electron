@@ -11,8 +11,9 @@ const os = require('os');
 const isDev = require('electron-is-dev');
 
 // 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
-// window 会被自动地关闭
+// window, tray 会被自动地关闭
 let mainWindow = null;
+let tray = null;
 
 const windowWidth = isDev ? 1400 : 400;
 const windowHeight = 600;
@@ -49,10 +50,6 @@ function createWindow() {
     }
   })
 
-  let tray = new Tray(path.join(__dirname, 'assets', 'icon.png'));
-
-  tray.setToolTip("Click to access OneCopy");
-
   const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`;
   mainWindow.loadURL(startURL);
   // 加载应用的 index.html
@@ -60,11 +57,14 @@ function createWindow() {
 
   setWindowPosition();
 
+  mainWindow.once('ready-to-show', () => mainWindow.show());
+
+  tray = new Tray(path.join(__dirname, 'assets', 'icon.png'));
+  tray.setToolTip("Click to access OneCopy");
+
   tray.on('click', () => {
     mainWindow.isVisible() ? mainWindow.hide() : mainWindow.show();
   })
-
-  mainWindow.once('ready-to-show', () => mainWindow.show());
 }
 
 const isSingleInstance = app.requestSingleInstanceLock()
