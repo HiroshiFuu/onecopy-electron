@@ -15,10 +15,9 @@ directories:
 files:
   - "assets/"
   - "package.json"
-  - "index.html"
-  - "main.js"
-  - "preload.js"
-  - "renderer.js"
+  - "public/index.html"
+  - "public/electron.js"
+  - "public/preload.js"
 
 win:
   icon: "assets/app-icon/win/icon.ico"

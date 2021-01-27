@@ -71,3 +71,4 @@ ts-gen
 patches/mtime-cache.json
 
 debug.log
+build/

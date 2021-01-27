@@ -9,6 +9,9 @@ const {
 const path = require('path');
 const os = require('os');
 const isDev = require('electron-is-dev');
+// const isDev = true;
+
+const rootFolder = path.join(__dirname, '..')
 
 // 保持一个对于 window 对象的全局引用，不然，当 JavaScript 被 GC，
 // window, tray 会被自动地关闭
@@ -41,7 +44,7 @@ function createWindow() {
     frame: false,
     resizable: isDev,
     backgroundColor: "#403F4D",
-    icon: path.join(__dirname, 'assets', 'icon.png'),
+    icon: path.join(rootFolder, 'assets', 'icon.png'),
     webPreferences: {
       nodeIntegration: true,
       worldSafeExecuteJavaScript: true,
@@ -50,16 +53,17 @@ function createWindow() {
     }
   })
 
-  const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`;
+
+  const startURL = isDev ? 'http://localhost:3000' : `file://${path.join(rootFolder, '/build/index.html')}`;
   mainWindow.loadURL(startURL);
   // 加载应用的 index.html
-  // mainWindow.loadFile(path.join(__dirname, 'public/index.html'))
+  // mainWindow.loadFile(path.join(rootFolder, 'public/index.html'))
 
   setWindowPosition();
 
   mainWindow.once('ready-to-show', () => mainWindow.show());
 
-  tray = new Tray(path.join(__dirname, 'assets', 'icon.png'));
+  tray = new Tray(path.join(rootFolder, 'assets', 'icon.png'));
   tray.setToolTip("Click to access OneCopy");
 
   tray.on('click', () => {

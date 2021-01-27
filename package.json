@@ -2,13 +2,13 @@
   "name": "onecopy-electron",
   "version": "1.0.2",
   "description": "Save all information and paste them whenever you need them",
-  "main": "main.js",
+  "main": "public/electron.js",
   "scripts": {
     "dev": "concurrently \"npm run start-react\" \"wait-on http://localhost:3000 && electron .\"",
     "start-react": "react-scripts start",
     "build-react": "react-scripts build",
     "start": "electron .",
-    "postinstall": "electron-builder install-app-deps",
+    "dist": "electron-builder --win --x64",
     "package": "electron-builder",
     "package:win": "electron-builder -w",
     "package:linux": "electron-builder -l",
@@ -16,7 +16,8 @@
     "package:all": "electron-builder -lwm",
     "deploy:win": "electron-builder -w --publish always",
     "deploy:linux": "electron-builder -l --publish always",
-    "deploy:mac": "electron-builder -m --publish always"
+    "deploy:mac": "electron-builder -m --publish always",
+    "postinstall": "electron-builder install-app-deps"
   },
   "repository": "https://github.com/HiroshiFuu/onecopy-electron",
   "keywords": [
@@ -24,6 +25,7 @@
     "Copy to clipboard",
     "Password manager"
   ],
+  "homepage": "./",
   "author": "FENG Hao <hiroshifuu@outlook.com>",
   "license": "MIT",
   "build": {
@@ -31,7 +33,7 @@
     "productName": "onecopy-electron",
     "copyright": "Copyright © 2021 @ FENG Hao",
     "mac": {
-      "category": "public.app-category.utilities",
+      "category": "public.app.category.utilities",
       "icon": "assets/app-icon/mac/icon.icns"
     },
     "win": {
@@ -43,7 +45,11 @@
     },
     "files": [
       "node_modules/**/*",
-      "package.json"
+      "package.json",
+      "assets/",
+      "public/index.html",
+      "public/electron.js",
+      "public/preload.js"
     ],
     "directories": {
       "buildResources": "assets"
@@ -51,17 +57,17 @@
   },
   "devDependencies": {
     "electron": "^11.2.0",
-    "electron-builder": "^22.9.1",
-    "node-sass": "^4.13.1",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0"
+    "electron-builder": "^22.9.1"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "concurrently": "^5.3.0",
     "css-loader": "^5.0.1",
     "electron-is-dev": "^1.2.0",
+    "node-sass": "^4.13.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.4.0",
     "style-loader": "^2.0.0",
     "wait-on": "^5.2.1"
   },
