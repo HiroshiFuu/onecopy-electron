@@ -1,6 +1,6 @@
 {
   "name": "onecopy-electron",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Save all information and paste them whenever you need them",
   "main": "main.js",
   "scripts": {
@@ -18,12 +18,11 @@
     "deploy:linux": "electron-builder -l --publish always",
     "deploy:mac": "electron-builder -m --publish always"
   },
-  "repository": "",
+  "repository": "https://github.com/HiroshiFuu/onecopy-electron",
   "keywords": [
     "Electron",
     "Copy to clipboard",
-    "Password manager",
-    "Clipboard manager"
+    "Password manager"
   ],
   "author": "FENG Hao <hiroshifuu@outlook.com>",
   "license": "MIT",
@@ -33,14 +32,14 @@
     "copyright": "Copyright © 2021 @ FENG Hao",
     "mac": {
       "category": "public.app-category.utilities",
-      "icon": "assets/mac/icon.png.icns"
+      "icon": "assets/app-icon/mac/icon.icns"
     },
     "win": {
-      "icon": "assets/win/icon.png.ico"
+      "icon": "assets/app-icon/win/icon.ico"
     },
     "linux": {
       "target": "AppImage",
-      "icon": "assets/png/256x256.png"
+      "icon": "assets/app-icon/png/128x128.png"
     },
     "files": [
       "node_modules/**/*",
