@@ -7,7 +7,6 @@ const {
 } = require('electron');
 
 const path = require('path');
-const os = require('os');
 const isDev = require('electron-is-dev');
 // const isDev = true;
 

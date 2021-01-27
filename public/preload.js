@@ -3,10 +3,6 @@
 const { ipcRenderer, shell, clipboard } = require('electron');
 
 const init = () => {
-  window.checkClipboard = () => {
-    return clipboard.readText();
-  };
-
   window.copyToClipboard = (text) => {
     clipboard.writeText(text);
   };
@@ -29,10 +25,6 @@ const init = () => {
 
   window.quitApp = () => {
     ipcRenderer.send('quit-app');
-  };
-
-  window.openEntryWindow = () => {
-    ipcRenderer.send('open-entry-window');
   };
 };
 
