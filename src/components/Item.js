@@ -12,6 +12,11 @@ import styles from "./Item.module.scss";
 
 const successAudio = new Audio('sound/success.mp3')
 
+successAudio.addEventListener("ended", function() {
+  console.log("audio ended");
+  window.quitApp();
+});
+
 function Item({ item }) {
   const dispatch = useAppReducer();
   let itemPrompt = item.prompt;
