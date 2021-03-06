@@ -16,7 +16,13 @@
 *.vcxproj.user
 *.xcodeproj
 /.idea/
+<<<<<<< 5ba3b1517009dd20190bd6883c358e422677fcfe
 /dist/
+=======
+#/dist/
+*.asar
+*.exe
+>>>>>>> fix: remove large files
 /external_binaries/
 /out/
 /vendor/.gclient
