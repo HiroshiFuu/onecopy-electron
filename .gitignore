@@ -16,11 +16,7 @@
 *.vcxproj.user
 *.xcodeproj
 /.idea/
-<<<<<<< 5ba3b1517009dd20190bd6883c358e422677fcfe
-/dist/
-=======
-#/dist/
-*.asar
+/dist/win-unpacked
 *.exe
 >>>>>>> fix: remove large files
 /external_binaries/
