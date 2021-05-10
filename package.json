@@ -1,6 +1,6 @@
 {
   "name": "onecopy-electron",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Save all information and paste them whenever you need them",
   "main": "public/electron.js",
   "scripts": {
