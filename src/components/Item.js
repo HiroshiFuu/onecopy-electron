@@ -13,8 +13,8 @@ import styles from "./Item.module.scss";
 const successAudio = new Audio('sound/success.mp3')
 
 successAudio.addEventListener("ended", function() {
-  console.log("audio ended");
-  window.quitApp();
+  // console.log("audio ended");
+  window.api.quitApp();
 });
 
 function Item({ item }) {
@@ -43,7 +43,7 @@ function Item({ item }) {
   function handleTextClick(e) {
     const { copy } = e.currentTarget.dataset;
     // console.log('handleTextClick', e.currentTarget.dataset, copy);
-    window.copyToClipboard(copy);
+    window.api.copyToClipboard(copy);
     playSuccessAudio();
   }
 
@@ -54,7 +54,7 @@ function Item({ item }) {
   }
 
   const handleSave = () => {
-    console.log("handleSave", prompt, copy);
+    // console.log("handleSave", prompt, copy);
     if (prompt !== null && prompt !== "") {
       const editedItem = { ...item, prompt: prompt, copy: copy };
       dispatch({ type: "UPDATE_ITEM", item: editedItem });

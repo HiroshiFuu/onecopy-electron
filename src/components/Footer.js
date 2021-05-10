@@ -13,7 +13,7 @@ class Footer extends React.Component {
   }
 
   handleFooterClick = () => {
-    window.openExternalUrl('https://github.com/HiroshiFuu');
+    window.api.openExternalUrl('https://github.com/HiroshiFuu');
   }
 
   render() {

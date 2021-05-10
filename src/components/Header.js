@@ -14,11 +14,11 @@ class Header extends React.Component {
   }
 
   handleAppQuit = () => {
-    window.quitApp();
+    window.api.quitApp();
   }
 
   handleAppMinimize = () => {
-    window.minimizeApp()
+    window.api.minimizeApp()
   }
 
   render() {
